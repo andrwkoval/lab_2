@@ -7,3 +7,4 @@ Coordinates are taken using ArcGIS API from geopy lib.</p>
 one for representing Ukraine and others represent different continents.</p>
 <hr>
 <h2>Use main function in module film_map to run a program.</h2>
+<hr>
