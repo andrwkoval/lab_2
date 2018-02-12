@@ -7,7 +7,7 @@ def read_data(path):
     This function reads data and returns it in a list
 
     path: path of file to read data from
-    returns: list of lists [film, year, location]
+    returns: list of lists typo of [film, year, location]
     """
 
     with open(path, "r", encoding="latin1", errors="ignore") as f:
