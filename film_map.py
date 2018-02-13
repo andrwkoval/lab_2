@@ -62,6 +62,7 @@ def map_design(diction, f_amount, l_amount):
     europe_fg = folium.FeatureGroup(name="Europe")
     asia_fg = folium.FeatureGroup(name="Asia")
     austr_fg = folium.FeatureGroup(name="Australia and Oceania")
+    ucu_fg = folium.FeatureGroup(name="UCU")
 
     loc_count = 0
     for key, value in diction.items():
@@ -83,7 +84,8 @@ def map_design(diction, f_amount, l_amount):
                                                           icon_color="blue")))
 
     if loc_count < l_amount:
-        print("That year were released only " + str(loc_count) + " films.")
+        print("That year were people used only " + str(loc_count)
+              + " locations to shoot films.")
 
     popul_fg.add_child(folium.GeoJson(open('json_files/world.json', 'r',
                                            encoding='utf-8-sig').read(),
@@ -127,6 +129,10 @@ def map_design(diction, f_amount, l_amount):
                                            encoding='utf-8-sig').read(),
                                       lambda x: {'fillColor': 'orange'}))
 
+    ucu_fg.add_child(folium.GeoJson(open('json_files/ucu.json', 'r',
+                                         encoding='utf-8-sig').read(),
+                                    lambda x: {'fillCollor': 'white'}))
+
     world_map.add_child(marks_fg)
     world_map.add_child(popul_fg)
     world_map.add_child(ukraine_fg)
@@ -136,6 +142,7 @@ def map_design(diction, f_amount, l_amount):
     world_map.add_child(south_am_fg)
     world_map.add_child(austr_fg)
     world_map.add_child(europe_fg)
+    world_map.add_child(ucu_fg)
     world_map.add_child(folium.LayerControl())
     world_map.save("Map.html")
 
